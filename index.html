@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askar's Portfolio</title>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+            --success-color: #2ecc71;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: white;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            text-align: center;
+            background-color: #ffffff;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: var(--dark-color);
+        }
+        
+        .hero img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 30px;
+            border: 5px solid var(--primary-color);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* About Me Section */
+        .about-me {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .about-me-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-me h2 {
+            font-size: 36px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        
+        .about-me p {
+            font-size: 18px;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+        
+        /* Skills Section */
+        .skills {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 36px;
+            color: var(--secondary-color);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 40px;
+        }
+        
+        .about-skills {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .skill-item {
+            margin-bottom: 20px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        /* Experience Section */
+        .experience {
+            padding: 100px 0;
+            background-color: white;
+        }
+        .experience-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .experience-item {
+            margin-bottom: 40px;
+            border-left: 3px solid var(--primary-color);
+            padding-left: 20px;
+            position: relative;
+        }
+        .experience-item h3 {
+            font-size: 24px;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .experience-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .experience-item .date {
+            color: var(--dark-color);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .experience-item .cert-btn {
+            padding: 6px 15px;
+            background-color: var(--success-color);
+            color: white;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        .experience-item .cert-btn:hover {
+            background-color: #27ae60;
+        }
+        .experience-item ul {
+            margin-left: 20px;
+        }
+        .experience-item li {
+            margin-bottom: 8px;
+        }
+        
+        /* Education Section */
+        .education {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .education-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .education-item {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .education-item h4 {
+            font-size: 24px;
+            color: var(--secondary-color);
+        }
+        
+        .education-item p {
+            color: var(--dark-color);
+        }
+        
+        /* Certifications Section */
+        .certifications {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-info h3 {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .project-info p {
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 30px 0;
+            background-color: white;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 400px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin: 0 10px;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+       
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">R. Askarrofi Prabularizda Anggoro</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <img src="https://upload-os-bbs.hoyolab.com/upload/2022/01/15/133384253/07a8974d130843fd8fdf03187e8f02d9_8301623583025724974.png">
+            <h2>Hello, I'm</h2>
+            <h1>R. Askarrofi Prabularizda Anggoro</h1>
+            <p>I am a third‑semester Informatics Engineering student at Institute Technology of Sumatera.</p>
+            <a href="#projects" class="btn">View My Work</a>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about-me">
+        <div class="container">
+            <div class="about-me-content">
+                <h2>About Me</h2>
+                <p>I am a focused Informatics Engineering student currently pursuing my degree at the Institute Technology of Sumatera. While I prioritize my academic studies, I am also deeply passionate about coding and cybersecurity, especially ethical hacking.</p>
+                <p>Outside of my coursework, I enjoy learning independently through personal projects and platforms like TryHackMe. I often spend time exploring new programming languages, building self-initiated applications, and sharpening my skills in web development and ethical hacking. I believe that consistent self-learning and real-world practice are essential to growing as a software developer.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-skills">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>HTML/CSS</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>C++</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>PHP</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>MySql</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-skills">
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Python</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Linux</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Java</span>
+                            <span>55%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 55%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Cyber Security</span>
+                            <span>40%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 40%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
+            <div class="experience-content">
+                <div class="experience-item">
+                    <h3>Backend Developer<a href="#certifications" class="cert-btn">View Certificate</a></h3>
+                    <h4>PT. Indonesia Indicator</h4>
+                    <p class="date">November 2023 - May 2024</p>
+                    <ul>
+                        <li>Developed web data crawling engines using Python and Playwright</li>
+                        <li>Analyzed and structured website data into JSON metadata for team processing</li>
+                        <li>Collaborated with the Backend Data Engineering team to collect and organize real-time web data</li>
+                        <li>Learned best practices in ethical data scraping and industry-grade automation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-content">
+                <div class="education-item">
+                    <h4>Bachelor of Informatics Engineering</h4>
+                    <p>Institute Technology of Sumatera, 2024 - Present</p>
+                </div>
+                <div class="education-item">
+                    <h4>Software and Game Development / Software Engineering</h4>
+                    <p>SMKN 4 Bandar Lampung (State Vocational High School 4 Bandar Lampung), 2021 - 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Certifications/Internship Certificate - R. Askarrofi Prabularizda Anggoro_page-0001.jpg" alt="Backend Developer Intern – PT Indonesia Indicator">
+                    </div>
+                    <div class="project-info">
+                        <h3>Backend Developer Intern – PT Indonesia Indicator</h3>
+                        <p>Completed a six-month internship at PT Indonesia Indicator as a Backend Developer, with performance rated as "Very Good" by the HR Manager.</p><br>
+                        <a href="https://drive.google.com/file/d/1kuiEA-5jgqJYwR8LjGPG-TzMH_FIpCX2/view?usp=sharing" class="btn" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Certifications/Cybershield 2025 - E Certificate_page-0001.jpg" alt="Participant – Cybershield 2025 Workshop">
+                    </div>
+                    <div class="project-info">
+                        <h3>Participant – Cybershield 2025 Workshop</h3>
+                        <p>Participated in the "Cybershield 2025" Network & Cyber Security Workshop hosted by Ethereal Learn in collaboration with HackPoint. Workshop theme: "Discover The Mind, Defend The System".</p>
+                        <a href="https://drive.google.com/file/d/1fwpDT7BkaK8v_f7edihCUQnpmF1pJLp3/view?usp=sharing" class="btn" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Certifications/SMKN4BDL_page-0001.jpg" alt="2nd Place Winner – Student Competency Competition (Cyber Security) City-Level LKS Competition">
+                    </div>
+                    <div class="project-info">
+                        <h3>2nd Place Winner – Student Competency Competition (Cyber Security) City-Level LKS Competition</h3>
+                        <p>Awarded for achieving 2nd place in the Student Competency Competition (LKS) in the field of Cyber Security, held at SMK Negeri 4 Bandar Lampung on May 23, 2023.</p>
+                        <a href="https://drive.google.com/file/d/1HxCbh5pD4lA7WwkuuPiwPTRPhvoR6QLb/view?usp=drive_link" class="btn" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Certifications/Sertifikat UKK_page-0001.jpg" alt="Certificate of Competence: Software Development for Photo Gallery">
+                    </div>
+                    <div class="project-info">
+                        <h3>Certificate of Competence: Software Development for Photo Gallery</h3>
+                        <p>Officially certified by the Indonesian Association of Informatics Experts (IAII) – DPW Lampung as competent in the unit of competency: *Software Development for Photo Gallery*.</p>
+                        <a href="https://drive.google.com/file/d/1HxCbh5pD4lA7WwkuuPiwPTRPhvoR6QLb/view?usp=drive_link" class="btn" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    </div>
+                </div>   
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Certifications\TOEFL_R. Askarrofi Prabularizda Anggoro_page-0001.jpg" alt="TOEFL EPT Certificate – Score: 613">
+                    </div>
+                    <div class="project-info">
+                        <h3>TOEFL EPT Certificate – Score: 613</h3>
+                        <p>TOEFL EPT Certificate – Total Score: 613 - Listening: 56 • Structure & Written Expression: 67 • Reading: 61 Issued by Daily Bahasa Inggris, June 19, 2025 – Valid through June 2026</p><br>
+                        <a href="https://drive.google.com/file/d/1Q1RpTSfzMaIb2d43i6NeJzNqTGjAlaBb/view?usp=drive_link" class="btn" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Certifications\TOEIC.jpg" alt="TOEIC Listening & Reading – Total Score: 515">
+                    </div>
+                    <div class="project-info">
+                        <h3>TOEIC Listening & Reading – Total Score: 515</h3>
+                        <p>TOEIC Listening & Reading Certificate – Total Score: 515 - Listening: 280 / 495 -Reading: 235 / 495 Issued by ETS (Educational Testing Service) • Valid until September 2025</p><br>
+                        <a href="https://drive.google.com/file/d/1ob5ZjkfFaYB_QO2NLisxr0I_creTZ732/view?usp=drive_link" class="btn" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Certifications\Sertifikat Antares_page-0001.jpg" alt="Workshop & Hands-On Antares – IoT Platform & Service">
+                    </div>
+                    <div class="project-info">
+                        <h3>Workshop & Hands-On Antares – IoT Platform & Service</h3>
+                        <p>Participated in a 2-day workshop focused on Antares IoT platform and services, organized by Telkom Indonesia through Leap and KDi IoT, held in Bandar Lampung.</p><br><br>
+                        <a href="https://drive.google.com/file/d/1lJWWs4bScPlLurQJrSFDQE8oyqVzV5vM/view?usp=drive_link" class="btn" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Certifications\Sertifikat Cyber Security_page-0001.jpg" alt="Webinar: Become a Cyber Security Expert in 2023">
+                    </div>
+                    <div class="project-info">
+                        <h3>Webinar: Become a Cyber Security Expert in 2023</h3>
+                        <p>Participated in an online webinar covering essential knowledge and strategies to pursue a career as a Cyber Security Expert in 2023, hosted by CodeResearch.</p><br><br>
+                        <a href="https://drive.google.com/file/d/1xBHUtT1Muszltanv80Pgt-0Y5v5t9HGh/view?usp=sharing" class="btn" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Certifications\R. Askarrofi Prabularizda Anggoro Sertifikat Webinar IT Cyber Security 25 Juli 2025_page-0001.jpg" alt="Webinar Participant – Getting Started with Industrial Cybersecurity">
+                    </div>
+                    <div class="project-info">
+                        <h3>Webinar Participant – Getting Started with Industrial Cybersecurity</h3>
+                        <p>Participated in an international webinar organized by ID-Networkers on July 25, 2025. The session introduced core concepts of industrial cybersecurity, focusing on securing industrial control systems and network infrastructure.</p>
+                        <a href="https://drive.google.com/file/d/1yNtNGpyu1cYAmlp09ylcqRwupUJP66bD/view?usp=drive_link" class="btn" target="_blank" rel="noopener noreferrer">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="Project\Screenshot 2025-07-30 110712.png" alt="Cokro Laundry">
+                    </div>
+                    <div class="project-info">
+                        <h3>Cokro Laundry</h3>
+                        <p>A web-based laundry order management system with customer order forms, real-time order tracking, and automated billing based on laundry weight.</p>
+                        <a href="https://github.com/Askarrofi/rumah_laundry.git" class="btn" target="_blank" rel="noopener noreferrer">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact</h2>
+            <form class="contact-form">
+                <div class="social-links">
+                <a href="https://github.com/Askarrofi"><img src="Asset\icons8-github-500.png" alt="Github Logo" height="100"><i class="fab fa-github" target="_blank" rel="noopener noreferrer"></i></a>
+                <a href="https://www.instagram.com/askarrofi95"><img src="Asset\icons8-instagram-500.png" alt="Instagram Logo" height="100"><i class="fab fa-instagram" target="_blank" rel="noopener noreferrer"></i></a>
+                <a href="https://www.linkedin.com/in/askarrofi"><img src="Asset\icons8-linkedin-500.png" alt="Linkedin Logo" height="100"><i class="fab fa-linkedin" target="_blank" rel="noopener noreferrer"></i></a>
+            </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <p>Gmail : askarrofi@gmail.com</p>
+            </div>
+            <p>&copy; 2025 R. Askarrofi Prabularizda Anggoro. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
